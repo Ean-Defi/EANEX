@@ -1,0 +1,832 @@
+
+<!doctype html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Home - EAN</title>
+<meta name="description" content=Evolutionary Algorithm Network>
+<meta name="keywords" content=EAN>
+<link rel="shortcut icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+<link href="/static/plugins/layui/css/layui.css" rel="stylesheet">
+<link href="/static/css/common.css?v=1609908819" rel="stylesheet">
+<link href="/static/css/otc/common.css" rel="stylesheet">
+<link href="/static/css/index.css?v=1609908819" rel="stylesheet">
+<link href="/static/css/swiper.min.css?v=1609908819" rel="stylesheet">
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="/static/plugins/layui/layui.all.js"></script>
+<script type="text/javascript" src="/static/plugins/lazyload/jquery.lazyload.min.js"></script>
+<script type='text/javascript' src='/static/js/lang/lang.js?v=1609908819'></script>
+<script type='text/javascript' src='/static/js/common.js?v=1609908819'></script>
+<script type='text/javascript' src='/static/js/common_view.js?v=1609908819'></script>
+<script>
+        window.conf = {
+            "ROOT": "",
+            "APP": "",
+            "OSS": "",
+            "STATIC": "/static",
+            "SUFFIX": "html",
+            "SMS_VERFY": "",
+            "PHONE_VERFY": "",
+            "USER_ID": "0",
+            "USER_PHOTO": "''",
+            "USER_NAME": "''",
+            "TIME_TASK": "1"
+        }
+        $(function () {
+            WST.initVisitor();
+        });
+        var url = "/wap/index/index.html";
+        var sUserAgent = navigator.userAgent;
+        if (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1) {
+                window.location.href = url;
+        }
+    </script>
+</head>
+<body class="Light" style="background:#f7f8fa;">
+<div class='top-navbar otc-navbarclearfix >' id="top-navbar">
+<nav>
+<div class="navbar-width clearfix">
+<div class="navbar-header fl clearfix">
+<a href="/home/index/index.html" class="fl">
+<img src="https://coins.eanex.io//upload/sysconfigs/2020-06/5efb27ce2fe8d.png" class="btc_logo" height="30">
+</a>
+<ul class="nav navbar-nav navbar-left navbar-main-link fl">
+<li class="cur">
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/token/index/index.html">Leveraged Tokens</a>
+</li>
+<li>
+<a href="/future/index/index.html">Futures</a>
+</li>
+<li>
+<a href="/easy/index/index.html">DeFi</a>
+</li>
+<li>
+<a href="/users/index.html">User Center</a>
+</li>
+<li>
+<a href="/cover/catid/1.html">Platform</a>
+</li>
+<li>
+<a href="/cover/catid/2.html">Help centre</a>
+</li>
+</ul>
+</div>
+<div id="navbar" class="collapse navbar-collapse fr clearfix" style="position: relative;">
+<ul class="nav navbar-nav navbar-right" style="float: left;">
+
+
+<li class="sign-up-li">
+<a class="log-in-btn sign-up-btn" href="/login.html">Login</a>
+</li>
+<li class="sign-up-li">
+<a class="sign-up-btn" href="/register.html">Register</a>
+</li>
+<li class="sign-up-li sign-load">
+<div class="sign-up-btn">
+<i class="icon-down"></i>
+<div class="header-user-appdown h-1-bg">
+<div class="code-box">
+<div class="download-options-code"></div>
+<p class="download-options-codeText">
+Scan QR code download </p>
+</div>
+<div class="download-options-buttons">
+<a class="common-button download-button">
+<i class="icon icon-iphone">
+</i>
+&nbsp;
+iPhone
+</a>
+<a class="common-button download-button">
+<i class="icon icon-Android">
+</i>
+&nbsp;
+Android
+</a>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<div class="change-lang">
+<div class="islang color-white"><i class="icon-lang"></i></div>
+<div class="lang-list">
+<dl>
+<dd lang="zh-cn" data-name="changeLang">中文</dd>
+<dd lang="en-us" data-name="changeLang">English</dd>
+<dd lang="ko-kr" data-name="changeLang">한국어</dd>
+<dd lang="ja-jp" data-name="changeLang">日本語</dd>
+<dd lang="vi-vn" data-name="changeLang">Việt Nam</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<script type='text/javascript' src='/static/js/qrcode.js'></script>
+<script type="text/javascript">
+		$(function(){
+				//日期
+				var element = layui.element, 
+			          form = layui.form;
+			          form.render();
+			    var msgArr = '';
+			    //系统消息的全选
+			     form.on('checkbox(navChooesType)', function (data) {
+			        var child = $(data.elem).parents('.nav_ifos_box').find('.nav_ifos_mian  ul li input[name="nav_check"]');
+			        msgArr = '';
+			        child.each(function (index, item) {
+			            item.checked = data.elem.checked;
+			               if(item.checked == true){
+		                       msgArr += item.value+',';
+			               }else{
+		                       msgArr = '';
+			               }
+			        });
+			        form.render('checkbox');
+			    });
+		    	//console.log(localStorage.getItem('lang'))
+			    if(localStorage.getItem('lang')) {
+                    var langText = localStorage.getItem('lang');
+                    if(langText=='zh-cn'){
+                        $('.islang').text('中文');
+                    }else if(langText == 'en-us'){
+                        $('.islang').text('English');
+                    }else if(langText == 'ko-kr'){
+                        $('.islang').text('한국어');
+                    }else  if(langText == 'ja-jp'){
+                        $('.islang').text('日本語');
+                    }else if(langText == 'vi-vn'){
+                        $('.islang').text('Việt Nam');
+                    }
+					//document.getElementById("textlang").innerHTML = '<img src="' + localStorage.getItem('langSrc') + '"  height="18" />';
+				} else {
+					$('.islang').text('English');
+					//document.getElementById("textlang").innerHTML = '<img src="/static/img/pic_flag_02.png"  height="18" />';
+				}
+		    });
+		
+		
+		 //二维码,参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+	    var a = qrcode(10, 'Q');
+	    var url = 'https://www.eanex.io/'+'home/index/download/?request=1';
+	    a.addData(url);
+	    a.make();
+	 	 //二维码结束
+	    $('.download-options-code').prepend(a.createImgTag());
+		    //切换中英文
+			$('body').on('mouseover', '.change-lang', function() {
+				$('.lang-list').show();
+			});
+			$('body').on('mouseleave', '.change-lang', function() {
+				$('.lang-list').hide();
+			});
+			$('body').on('click', '.lang-list dl dd', function() {
+				var that = this;
+				//          $('.islang').find('.textlang').html($(that).text());
+				localStorage.setItem('langSrc', $(that).attr('data-src'));
+				localStorage.setItem('lang', $(that).attr('lang'));
+				var data = {
+					'lang': $(that).attr('lang')
+				};
+				$.get("/home/index/lang.html", data, function() {
+					location.reload();
+				});
+		
+			});
+	//获取选中的站内信息条数的id
+	   function getChk(obj){
+	   	  msgArr = msgArr;
+          var liObj = $(obj).find('input[name="nav_check"]');
+          if(liObj[0].checked == true){
+              msgArr += liObj.val()+',';
+          }
+	   }
+	   function reads(){
+	     if(msgArr == ''){
+             layer.msg('未选中消息');
+             return false;
+         }
+		 $.post('/home/messages/batchRead',{ids:msgArr},function (data) {
+             layer.msg(data.msg);
+             if(data.status == 1){
+                 $('.nav_ifos_mian  ul li').each(function() {
+                     if($(this).find('input[name="nav_check"]').is(":checked")){
+                         $(this).remove();
+                     }
+                 });
+             }
+         })
+	}
+</script>
+
+<div class='wst-main clearfix'>
+<div class='wst-content fr'>
+<div class="loading-index"></div>
+<div class="new-banner">
+<div class="swiper-container">
+<div class="swiper-wrapper">
+<div class="swiper-slide" style="background-image: url('https://coins.eanex.io//upload/ads/2020-06/5ef7025f9ef6f.png')">
+<div class="container">
+<a href="#" class="new-title">
+<h1><img src="/static/img/home/home_img_logo2.png"></h1>
+<h2>
+EAN Cryptocurrency
+</h2>
+<h2>
+Derivatives Exchange
+</h2>
+</a>
+</div>
+</div>
+<div class="swiper-slide" style="background-image: url('')">
+<div class="container">
+<a href="" class="new-title">
+</a>
+</div>
+</div>
+<div class="swiper-slide" style="background-image: url('')">
+<div class="container">
+<a href="" class="new-title">
+</a>
+</div>
+</div>
+</div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+
+<div style="position: relative;z-index: 2;background-color: #000923">
+<div class="notice clearfix">
+<div class="wst-f999 fs-md fl noticeList v-ellipsis">
+<div class="anounce">
+<ul>
+<li class="fs-xs">
+<i class="icon icon-notice"></i>
+<span style="color: #B0B8DB">Notices：Disclaimer</span>
+<a style="color: #B0B8DB;" href="/info/98">2019-01-12 18:15:13</a>
+</li>
+<li class="fs-xs">
+<i class="icon icon-notice"></i>
+<span style="color: #B0B8DB">Notices：Privacy protection</span>
+<a style="color: #B0B8DB;" href="/info/99">2019-01-12 18:15:38</a>
+</li>
+<li class="fs-xs">
+<i class="icon icon-notice"></i>
+<span style="color: #B0B8DB">Notices：Mining Rate, Trading Fees and Withdrawals</span>
+<a style="color: #B0B8DB;" href="/info/112">2020-11-19 16:58:58</a>
+</li>
+<li class="fs-xs">
+<i class="icon icon-notice"></i>
+<span style="color: #B0B8DB">Notices：Addition of TRX and USDT-TRC20 for Deposit</span>
+<a style="color: #B0B8DB;" href="/info/113">2020-12-10 23:08:37</a>
+</li>
+<li class="fs-xs">
+<i class="icon icon-notice"></i>
+<span style="color: #B0B8DB">Notices：New Cryptocurrency Trading Product -TRX</span>
+<a style="color: #B0B8DB;" href="/info/114">2020-12-14 22:57:53</a>
+</li>
+</ul>
+</div>
+</div>
+<a class="fs-lg fr more" href="/list/catid/1">More</a>
+</div>
+</div>
+
+<div class="section no-padding">
+<div class="new-coins clearfix">
+<div class="new-coins-item BTC_USDT" data-id="BTC_USDT">
+<div class="new-coins-verity clearfix">
+<span class="fl">BTC/USDT</span>
+<span class="fr f12 new-c-green">+9.22%</span>
+</div>
+<div class="new-coins-verity">
+<span class="c-fff">35352.84</span>
+</div>
+<div class="new-coins-verity">
+ <span class="f12 c-b0b">
+24H VOL <span class="totalMum">0</span>
+</span>
+</div>
+</div>
+<div class="new-coins-item ETH_USDT" data-id="ETH_USDT">
+<div class="new-coins-verity clearfix">
+<span class="fl">ETH/USDT</span>
+<span class="fr f12 new-c-green">+5.87%</span>
+</div>
+<div class="new-coins-verity">
+<span class="c-fff">1118.2</span>
+</div>
+<div class="new-coins-verity">
+<span class="f12 c-b0b">
+24H VOL <span class="totalMum">0</span>
+</span>
+</div>
+</div>
+<div class="new-coins-item LTC_USDT" data-id="LTC_USDT">
+<div class="new-coins-verity clearfix">
+<span class="fl">LTC/USDT</span>
+<span class="fr f12 new-c-green">+4.77%</span>
+</div>
+<div class="new-coins-verity">
+<span class="c-fff">162.11</span>
+</div>
+<div class="new-coins-verity">
+<span class="f12 c-b0b">
+24H VOL <span class="totalMum">0</span>
+</span>
+</div>
+</div>
+<div class="new-coins-item EOS_USDT" data-id="EOS_USDT">
+<div class="new-coins-verity clearfix">
+<span class="fl">EOS/USDT</span>
+<span class="fr f12 new-c-green">+1.24%</span>
+</div>
+<div class="new-coins-verity">
+<span class="c-fff">2.8943</span>
+</div>
+<div class="new-coins-verity">
+<span class="f12 c-b0b">
+24H VOL <span class="totalMum">0</span>
+</span>
+</div>
+</div>
+<div class="new-coins-item XRP_USDT" data-id="XRP_USDT">
+<div class="new-coins-verity clearfix">
+<span class="fl">XRP/USDT</span>
+<span class="fr f12 new-c-red">-0.08%</span>
+</div>
+<div class="new-coins-verity">
+<span class="c-fff">0.22691</span>
+</div>
+<div class="new-coins-verity">
+<span class="f12 c-b0b">
+24H VOL <span class="totalMum">0</span>
+</span>
+</div>
+</div>
+<div class="new-coins-item BCH_USDT" data-id="BCH_USDT">
+<div class="new-coins-verity clearfix">
+<span class="fl">BCH/USDT</span>
+<span class="fr f12 new-c-green">+4.02%</span>
+</div>
+<div class="new-coins-verity">
+<span class="c-fff">426.11</span>
+</div>
+<div class="new-coins-verity">
+<span class="f12 c-b0b">
+24H VOL <span class="totalMum">0</span>
+</span>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="trade-data-box">
+<ul class="trade-tab clearfix">
+<li class="trade-tab-active"><span>Leveraged Tokens</span></li>
+<li><span>Volatility Index</span></li>
+<li><span>Futures</span></li>
+<li><span>Optional</span></li>
+</ul>
+<div class="trade-data-con">
+<ul class="trade-list clearfix">
+<li><span class="trade-switch-btn">Transaction pairs</span></li>
+<li><span class="trade-switch-btn">Latest Price</span></li>
+<li><span class="trade-switch-btn">Gain</span></li>
+<li><span>Highest price</span></li>
+<li><span>24H quantity</span></li>
+</ul>
+<div class="trade-box">
+<div class="trade-data-list">
+<div class="trade-data-line clearfix BTCMOON_USDT" data-id="BTCMOON_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">BTCMOON_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">31347.20</span>&nbsp;≈&nbsp;<span class="coin_cny">$28212.48</span></div>
+<div class="trade-data-item"><span class="new-c-green">+24.18%</span></div>
+<div class="trade-data-item"><span>32246.57</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix BTCREKT_USDT" data-id="BTCREKT_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">BTCREKT_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">4.37</span>&nbsp;≈&nbsp;<span class="coin_cny">$3.93</span></div>
+<div class="trade-data-item"><span class="new-c-red">-38.44%</span></div>
+<div class="trade-data-item"><span>6.22000</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix BTCNEG_USDT" data-id="BTCNEG_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">BTCNEG_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">207.58</span>&nbsp;≈&nbsp;<span class="coin_cny">$186.82</span></div>
+<div class="trade-data-item"><span class="new-c-red">-10.72%</span></div>
+<div class="trade-data-item"><span>232.05000</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix ETHMOON_USDT" data-id="ETHMOON_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">ETHMOON_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">3156.87</span>&nbsp;≈&nbsp;<span class="coin_cny">$2841.18</span></div>
+<div class="trade-data-item"><span class="new-c-green">+16.01%</span></div>
+<div class="trade-data-item"><span>3295.83</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix ETHREKT_USDT" data-id="ETHREKT_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">ETHREKT_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">0.0511</span>&nbsp;≈&nbsp;<span class="coin_cny">$0.04</span></div>
+<div class="trade-data-item"><span class="new-c-red">-22.11%</span></div>
+<div class="trade-data-item"><span>0.06510</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix ETHNEG_USDT" data-id="ETHNEG_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">ETHNEG_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">12.995</span>&nbsp;≈&nbsp;<span class="coin_cny">$11.69</span></div>
+<div class="trade-data-item"><span class="new-c-red">-6.52%</span></div>
+<div class="trade-data-item"><span>14.04000</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix GOLDMOON_USDT" data-id="GOLDMOON_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">GOLDMOON_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">611.153</span>&nbsp;≈&nbsp;<span class="coin_cny">$550.03</span></div>
+<div class="trade-data-item"><span class="new-c-red">-0.90%</span></div>
+<div class="trade-data-item"><span>622.139</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix GOLDREKT_USDT" data-id="GOLDREKT_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-313">GOLDREKT_USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">328.268</span>&nbsp;≈&nbsp;<span class="coin_cny">$295.44</span></div>
+<div class="trade-data-item"><span class="new-c-green">+0.88%</span></div>
+<div class="trade-data-item"><span>329.46500</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+</div>
+<div class="trade-data-list">
+<div class="trade-data-line clearfix CVIX_USDT" data-id="CVIX_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">CVIX/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">3337.70</span>&nbsp;≈&nbsp;<span class="coin_cny">$3003.93</span></div>
+<div class="trade-data-item"><span class="new-c-green">+8.50%</span></div>
+<div class="trade-data-item"><span>3379.54</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+</div>
+<div class="trade-data-list">
+<div class="trade-data-line clearfix BTC_USDT" data-id="BTC_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">BTC/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">35352.84</span>&nbsp;≈&nbsp;<span class="coin_cny">$31817.55</span></div>
+<div class="trade-data-item"><span class="new-c-green">+9.22%</span></div>
+<div class="trade-data-item"><span>35716.01</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix ETH_USDT" data-id="ETH_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">ETH/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">1118.2</span>&nbsp;≈&nbsp;<span class="coin_cny">$1006.38</span></div>
+<div class="trade-data-item"><span class="new-c-green">+5.87%</span></div>
+<div class="trade-data-item"><span>1135</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix LTC_USDT" data-id="LTC_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">LTC/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">162.11</span>&nbsp;≈&nbsp;<span class="coin_cny">$145.89</span></div>
+<div class="trade-data-item"><span class="new-c-green">+4.77%</span></div>
+<div class="trade-data-item"><span>164.72</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix EOS_USDT" data-id="EOS_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">EOS/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">2.8943</span>&nbsp;≈&nbsp;<span class="coin_cny">$2.60</span></div>
+<div class="trade-data-item"><span class="new-c-green">+1.24%</span></div>
+<div class="trade-data-item"><span>2.95240</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix XRP_USDT" data-id="XRP_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">XRP/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">0.22691</span>&nbsp;≈&nbsp;<span class="coin_cny">$0.20</span></div>
+<div class="trade-data-item"><span class="new-c-red">-0.08%</span></div>
+<div class="trade-data-item"><span>0.23504</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix BCH_USDT" data-id="BCH_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">BCH/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">426.11</span>&nbsp;≈&nbsp;<span class="coin_cny">$383.49</span></div>
+<div class="trade-data-item"><span class="new-c-green">+4.02%</span></div>
+ <div class="trade-data-item"><span>431.05</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix ETC_USDT" data-id="ETC_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">ETC/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">7.2242</span>&nbsp;≈&nbsp;<span class="coin_cny">$6.50</span></div>
+<div class="trade-data-item"><span class="new-c-green">+3.28%</span></div>
+<div class="trade-data-item"><span>7.2985</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix DASH_USDT" data-id="DASH_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">DASH/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">92.55</span>&nbsp;≈&nbsp;<span class="coin_cny">$83.29</span></div>
+<div class="trade-data-item"><span class="new-c-green">+3.89%</span></div>
+<div class="trade-data-item"><span>94.78</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix XMR_USDT" data-id="XMR_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">XMR/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">136.04</span>&nbsp;≈&nbsp;<span class="coin_cny">$122.43</span></div>
+<div class="trade-data-item"><span class="new-c-green">+4.07%</span></div>
+<div class="trade-data-item"><span>139.54000</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix CVIX_USDT" data-id="CVIX_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">CVIX/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">3337.70</span>&nbsp;≈&nbsp;<span class="coin_cny">$3003.93</span></div>
+<div class="trade-data-item"><span class="new-c-green">+8.50%</span></div>
+<div class="trade-data-item"><span>3379.54</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix ADA_USDT" data-id="ADA_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">ADA/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">0.26827</span>&nbsp;≈&nbsp;<span class="coin_cny">$0.24</span></div>
+<div class="trade-data-item"><span class="new-c-green">+8.38%</span></div>
+<div class="trade-data-item"><span>0.27477</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix XAU_USDT" data-id="XAU_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">XAU/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">1943.86</span>&nbsp;≈&nbsp;<span class="coin_cny">$1749.47</span></div>
+<div class="trade-data-item"><span class="new-c-red">-0.30%</span></div>
+<div class="trade-data-item"><span>1955.42</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix XAG_USDT" data-id="XAG_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">XAG/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">27.317</span>&nbsp;≈&nbsp;<span class="coin_cny">$24.58</span></div>
+<div class="trade-data-item"><span class="new-c-red">-0.27%</span></div>
+<div class="trade-data-item"><span>27.68920</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix DEAN_USDT" data-id="DEAN_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">DEAN/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">0.9503</span>&nbsp;≈&nbsp;<span class="coin_cny">$0.85</span></div>
+<div class="trade-data-item"><span class="new-c-green">+0.76%</span></div>
+<div class="trade-data-item"><span>0.95890</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+<div class="trade-data-line clearfix TRX_USDT" data-id="TRX_USDT">
+<div class="trade-data-item"><span class="trade-collect"><i></i><span class="c-5e5">TRX/USDT</span></span></div>
+<div class="trade-data-item"><span class="new-c-blue">0.02839</span>&nbsp;≈&nbsp;<span class="coin_cny">$0.02</span></div>
+<div class="trade-data-item"><span class="new-c-green">+1.69%</span></div>
+<div class="trade-data-item"><span>0.02893</span></div>
+<div class="trade-data-item"><span>0</span></div>
+</div>
+</div>
+<div class="trade-data-list" id="select_by_user">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section bg_multi-terminal">
+<div class="container">
+<div class="section-title">
+<h2>Multi platform terminal access</h2>
+<h5>iOS、AndroidMultiple platforms support full business functions, fingertip investment, and palm Trading</h5>
+</div>
+<a href="home/index/downloadInfo" class="new-btn bg_btn_blue">
+downloadAPP
+</a>
+</div>
+</div>
+<div class="section">
+<div class="container">
+<div class="section-title section-dark-title">
+<h2>Products and services</h2>
+<h5>Secure and reliable digital asset trading and asset management services for millions of users around the world</h5>
+</div>
+<div class="pro-list clearfix">
+<div class="pro-list-item">
+<div class="pro-item-box">
+<div class="pro-list-pic">
+<img src="/static/img/home/home_icon_sec.png">
+</div>
+<div class="pro-list-title">
+System Guarantee </div>
+<div class="pro-list-text">
+Independently developed core transaction engine capable of processing millions of transactions per second, ensuring fast and efficient transactions The multi-layer architecture results in performance, security, scalability and stability of the system. </div>
+</div>
+</div>
+<div class="pro-list-item">
+<div class="pro-item-box">
+<div class="pro-list-pic">
+<img src="/static/img/home/home_icon_secu.png">
+</div>
+<div class="pro-list-title">
+Secured systems </div>
+<div class="pro-list-text">
+EAN's technology team has rich experience in security systems, adopting an advanced multi-layer and multi-cluster architecture to create an industry standard security risk control and protection system. </div>
+</div>
+</div>
+<div class="pro-list-item">
+<div class="pro-item-box">
+<div class="pro-list-pic">
+<img src="/static/img/home/home_icon_profession.png">
+</div>
+<div class="pro-list-title">
+Professional operations </div>
+<div class="pro-list-text">
+Our operations and risk control team have deep experience to ensure smooth operations, putting customer and security of digital assets first. </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section bg_register">
+<div class="container clearfix">
+<div class="layui-row">
+<div class="layui-col-md5 layui-col-md-offset3">
+<div class="section-title">
+<h2>Start trading now</h2>
+<h5>Sign up to start your trading journey with us</h5>
+</div>
+</div>
+<div class="layui-col-md4">
+<a href="/register.html" class="new-btn bg_btn_blue">
+Register Now </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer" class="bz">
+<div class="footer clearfix">
+<div class="layui-row">
+<div class="layui-col-md3">
+<div class="footer-logo">
+<img src="/static/img/home/logo/footer_logo.png"><br />
+
+</div>
+</div>
+<div class="layui-col-md7">
+<div class="clearfix footer-ul">
+<div class="layui-row">
+<div class="layui-col-md4">
+<dl>
+<dt>About Us</dt>
+<dd><a href="/info/87">Listing application</a></dd>
+<dd><a href="/info/91">We're hiring</a></dd>
+<dd><a href="/info/92">Contact Us</a></dd>
+<dd><a href="/info/93">Coin application</a></dd>
+</dl>
+</div>
+<div class="layui-col-md4">
+<dl>
+<dt>User support</dt>
+<dd><a href="/info/94">Notice</a></dd>
+<dd><a href="/info/95">Feedback</a></dd>
+<dd><a href="/info/86">Fees</a></dd>
+<dd><a href="/info/96">Services</a></dd>
+</dl>
+</div>
+<div class="layui-col-md4">
+<dl>
+<dt>User notes</dt>
+<dd><a href="/info/97">User Agreement</a></dd>
+<dd><a href="/info/98">Disclaimer</a></dd>
+<dd><a href="/info/99">Privacy Policy</a></dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="layui-col-md2 text-right">
+<div class="foot-r">
+<div class="title">Follow us</div>
+<div class="reflink">
+<a href="/info/100"><i class="icon-f"></i></a>
+<a href="/info/101"><i class="icon-in"></i></a>
+<a href="/info/102"><i class="icon-weibo"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+		//二维码
+		//参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+		var a = qrcode(6, 'M');
+		var url = 'https://www.eanex.io/' + 'home/index/download/?request=1';
+		a.addData(url);
+		a.make();
+		$('.download-code').prepend(a.createImgTag());
+		$('.code_wrap').prepend(a.createImgTag());
+	</script>
+<script type='text/javascript' src='/static/plugins/lazyload/jquery.lazyload.min.js?v=1609908819'></script>
+<script type='text/javascript' src='/static/js/index.js?v=1609908819'></script>
+<script type='text/javascript' src='/static/js/swiper.min.js?v=1609908819'></script>
+<script type="text/javascript" src="/templates/home/view/default/index/index.js?v=1609908819"></script>
+<script type='text/javascript' src='/static/js/qrcode.js?v='></script>
+<script type="text/javascript">
+	var rateCoin = '0.9';
+	var userId = window.conf.USER_ID;
+	var selectArr = localStorage.getItem('selectArr'+userId)||JSON.stringify([]);
+	selectArr = JSON.parse(selectArr);	
+    $(document).ready(function () {
+        var wsUrl = "wss://www.eanex.io/wsfuture";
+        socketPush(wsUrl);
+        rollFn(); //点击滚动
+
+		//重要通知弹框
+		$(".dialog-notice").fadeIn();
+		$(".dialog-close").click(function () {
+			$(this).parents(".dialog-notice").fadeOut();
+        })
+ 		
+        if (userId > 0) {
+        	try{
+        		for(var i=0;i<selectArr.length;i++){
+        			 $(".trade-box .trade-data-list").find('.'+selectArr[i].fu_name).find('.trade-collect').addClass('trade-collect-active');
+        			 var obj = $(".trade-box .trade-data-list").find('.'+selectArr[i].fu_name).clone();
+        			 $('#select_by_user').append(obj);
+        		}
+        	}catch(err){
+        		console.log(err)
+        	}
+        	
+        	
+        }
+        
+    });
+   
+    // $('.code_wrap').prepend(a.createImgTag());
+
+	$(window).scroll(function () {
+		if($(document).scrollTop()>150){
+		    $(".top-navbar").addClass("navbar-fixed");
+		}else{
+            $(".top-navbar").removeClass("navbar-fixed");
+		}
+    });
+    //banner
+    var banner = new Swiper('.new-banner .swiper-container',
+        {
+            speed:1000,
+            effect : 'fade',
+            slidesPerView : 1,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            loop:true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    //种类切换
+    $(".trade-tab li >span").click(function () {
+        var index=$(this).parent("li").index();
+        $(this).parent("li").addClass("trade-tab-active").siblings("li").removeClass("trade-tab-active");
+        $(".trade-box .trade-data-list").eq(index).show().siblings(".trade-data-list").hide();
+    });
+    //自选
+    
+    $(document).on('click','.trade-collect',function(){
+    	 $(this).toggleClass("trade-collect-active");
+         var fu_name = $(this).parents('.trade-data-line').attr('data-id');
+         var is_active = $(this).hasClass("trade-collect-active");
+         if (userId > 0) {
+        	 if(is_active){
+        		 selectArr.push({"fu_name":fu_name}); 
+              	var cloneObj = $(this).parents('.trade-data-line').clone();
+              	$('#select_by_user').append(cloneObj);
+              	localStorage.setItem('selectArr'+userId,JSON.stringify(selectArr));
+              }else{
+            	  for(var i=0;i<selectArr.length;i++){
+            		  if(selectArr[i].fu_name==fu_name){
+            			  selectArr.splice(i,1)
+            		  }
+            	  }
+              	 $('#select_by_user').find('.'+fu_name).remove();
+              	 $(".trade-box .trade-data-list").find('.'+fu_name).find('.trade-collect').removeClass('trade-collect-active');
+              	 localStorage.setItem('selectArr'+userId,JSON.stringify(selectArr));
+              }
+         }
+  		
+    })
+</script>
+<script>
+ /*   window.onload = function () {
+        var contentHeight = $(window).height();//网页正文全文高度
+        $(".loading-index").height(contentHeight);
+        $(window).resize(function(){
+            var contentHeight = $(window).height();//网页正文全文高度
+            $(".loading").height(contentHeight);
+        });
+        setTimeout(function(){
+            $(".loading-index").fadeOut(250);
+        },4000);
+    };
+	$(".loading-index").click(function () {
+       $(".loading-index").fadeOut(250);
+   })
+*/
+</script>
+</body>
+</html>
